@@ -1,0 +1,32 @@
+{
+  "name": "bus-chalo",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server/server.js",
+    "start": "node server/server.js",
+    "client": "cd client && npm run dev",
+    "build": "npm install && cd client && npm install --legacy-peer-deps",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "colors": "^1.4.0",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-validator": "^7.3.1",
+    "framer-motion": "^12.23.25",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.20.1",
+    "react-toastify": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

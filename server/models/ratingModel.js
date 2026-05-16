@@ -1,0 +1,26 @@
+import mongoose from "mongoose";
+const ratingSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    bus: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Bus',
+        required: true
+    },
+    comment: {
+        type: String,
+        required: true
+    },
+    rate: {
+        type: Number,
+        default: 5,
+        required: true
+    }
+}, {
+    timestamps: true
+})
+
+export default mongoose.model('Rating', ratingSchema)
