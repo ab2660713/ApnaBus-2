@@ -144,45 +144,60 @@ export const getAllBookings = async (req, res) => {
     res.status(200).json(bookings)
 }
 
-export const updateBooking =async (req, res) => {
-
-    const oldBooking = await Booking.findById(req.params.bid)
-    if (!oldBooking) {
-        res.status(404)
-        throw new Error('No Booking Found')
-    }
-
-    const bus = await Bus.findById(oldBooking.bus)
-    if (!bus) {
-        res.status(404)
-        throw new Error('Bus Not Found')
-    }
-
-    // update booking first
-    const updatedBooking = await Booking.findByIdAndUpdate(
-        req.params.bid,
+export const updateBooking = async (req, res) => {
+    try {
+      const oldBooking = await Booking.findById(req.params.id);
+  
+      if (!oldBooking) {
+        return res.status(404).json({
+          message: "No Booking Found",
+        });
+      }
+  
+      const bus = await Bus.findById(oldBooking.bus);
+  
+      if (!bus) {
+        return res.status(404).json({
+          message: "Bus Not Found",
+        });
+      }
+  
+      // Update booking
+      const updatedBooking = await Booking.findByIdAndUpdate(
+        req.params.id,
         req.body,
         { new: true }
-    ).populate('user').populate('bus')
-
-    if (!updatedBooking) {
-        res.status(400)
-        throw new Error('Booking Not Updated!')
-    }
-
-    // Fix seat count logic
-    const seatDiff =
+      )
+        .populate("user")
+        .populate("bus");
+  
+      if (!updatedBooking) {
+        return res.status(400).json({
+          message: "Booking Not Updated!",
+        });
+      }
+  
+      // Seat count update
+      const seatDiff =
         (oldBooking.ticketCount || 0) -
-        (updatedBooking.ticketCount || 0)
-
-    await Bus.findByIdAndUpdate(
+        (updatedBooking.ticketCount || 0);
+  
+      await Bus.findByIdAndUpdate(
         oldBooking.bus,
-        { availableSeats: bus.availableSeats + seatDiff },
+        {
+          availableSeats: bus.availableSeats + seatDiff,
+        },
         { new: true }
-    )
-
-    res.status(200).json(updatedBooking)
-}
+      );
+  
+      res.status(200).json(updatedBooking);
+  
+    } catch (error) {
+      res.status(500).json({
+        message: error.message,
+      });
+    }
+  };
 export const deleteBus = async (req, res) => {
     try {
       const bus = await Bus.findByIdAndDelete(req.params.id);

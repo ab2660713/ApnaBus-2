@@ -20,19 +20,26 @@ import {
 import { viewAllBookings } from "../controllers/bookingController.js";
 
 const router = express.Router();
-
 router.post('/bus', adminProtect, addBus);
+
 router.put('/bus/:bsid', adminProtect, updateBus);
+
 router.put('/booking/:id', adminProtect, updateBooking);
+
 router.put('/user/:uid', adminProtect, updateUser);
+
 router.get('/buses', adminProtect, getBuses);
+
 router.get('/bus/:id', adminProtect, getBus);
+
 router.get('/dashboard-stats', adminProtect, getDashboardStats);
+
 router.delete('/bus/:id', adminProtect, deleteBus);
-router.get("/admin/view-bookings", adminProtect, viewAllBookings);
 
 router.get('/view-users', adminProtect, getAllUsers);
+
 router.get('/view-ratings', adminProtect, getAllRatings);
-router.get('/view-bookings', adminProtect, getAllBookings);
+
+router.get('/view-bookings', adminProtect, viewAllBookings);
 
 export default router;
