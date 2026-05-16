@@ -24,7 +24,7 @@ const {id}=useParams()
   async function getAllBuses() {
     try {
       setLoading(true);
-      const { data } = await axios.get("http://localhost:5000/api/admin/buses", authHeader);
+      const { data } = await axios.get("https://apnabus-2-2.onrender.com/api/admin/buses", authHeader);
       setBuses(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Error fetching buses:", err);

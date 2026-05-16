@@ -14,7 +14,7 @@ const navigate=useNavigate()
     if (!confirm("Are you sure you want to delete this bus?")) return;
   
     try {
-      await axios.delete(`http://localhost:5000/api/admin/bus/${id}`, {
+      await axios.delete(`https://apnabus-2-2.onrender.com/api/admin/bus/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
   
@@ -28,7 +28,7 @@ const navigate=useNavigate()
   // FETCH STATS
   const fetchStats = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/admin/dashboard-stats", {
+      const res = await axios.get("https://apnabus-2-2.onrender.com/api/admin/dashboard-stats", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStats(res.data);
@@ -40,7 +40,7 @@ const navigate=useNavigate()
   // FETCH BUSES
   const fetchBuses = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/admin/buses", {
+      const res = await axios.get("https://apnabus-2-2.onrender.com/api/admin/buses", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBuses(res.data);

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/rating/";
+const API_URL = "https://apnabus-2-2.onrender.com/api/rating/";
 
 const addRating = async (data) => {
   const token = JSON.parse(localStorage.getItem("user")).token;

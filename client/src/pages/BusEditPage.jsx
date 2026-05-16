@@ -30,7 +30,7 @@ export default function BusEditPage() {
       try {
         const token = localStorage.getItem("token"); // FIXED
       
-        const res = await axios.get(`http://localhost:5000/api/admin/bus/${id}`, {
+        const res = await axios.get(`https://apnabus-2-2.onrender.com/api/admin/bus/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -58,7 +58,7 @@ export default function BusEditPage() {
     try {
       const token = localStorage.getItem("token");
   
-      await axios.put(`http://localhost:5000/api/admin/bus/${id}`, bus, {
+      await axios.put(`https://apnabus-2-2.onrender.com/api/admin/bus/${id}`, bus, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

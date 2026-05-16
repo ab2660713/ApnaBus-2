@@ -37,7 +37,7 @@ export default function AllBookings() {
   async function fetchBookings() {
     try {
       setLoading(true);
-      const { data } = await axios.get("http://localhost:5000/api/admin/view-bookings", authHeader);
+      const { data } = await axios.get("https://apnabus-2-2.onrender.com/api/admin/view-bookings", authHeader);
 
       setBookings(Array.isArray(data.bookings) ? data.bookings : data);
     } catch (err) {

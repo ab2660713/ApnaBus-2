@@ -7,7 +7,7 @@ const fetchAllBookings = async (token) => {
     },
   };
 
-  const response = await axios.get("/api/admin/view-bookings", options);
+  const response = await axios.get("https://apnabus-2-2.onrender.com/api/admin/view-bookings", options);
   return response.data;
 };
 
@@ -16,7 +16,7 @@ const fetchAllBookings = async (token) => {
 const updateBooking = async (id, formdata, token) => {
     console.log(id, formdata);
   
-    return await axios.put(`/api/admin/booking/${id}`, formdata, {
+    return await axios.put(`https://apnabus-2-2.onrender.com/api/admin/booking/${id}`, formdata, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -31,7 +31,7 @@ const fetchAllUsers = async (token) => {
     },
   };
 
-  const response = await axios.get("/api/admin/view-users", options);
+  const response = await axios.get("https://apnabus-2-2.onrender.com/api/admin/view-users", options);
   return response.data;
 };
 

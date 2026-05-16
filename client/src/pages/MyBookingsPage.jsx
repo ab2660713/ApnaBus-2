@@ -10,7 +10,7 @@ function MyBookingsPage() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:5000/api/booking/my-bookings", {
+      const res = await axios.get("https://apnabus-2-2.onrender.com/api/booking/my-bookings", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ function MyBookingsPage() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.patch(`http://localhost:5000/api/booking/cancel/${id}`, {}, {
+      await axios.patch(`https://apnabus-2-2.onrender.com/api/booking/cancel/${id}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

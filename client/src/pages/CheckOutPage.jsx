@@ -29,7 +29,7 @@ const navigate=useNavigate()
   
       // Correct route: POST /api/booking/:bsid
       const res = await axios.post(
-        `http://localhost:5000/api/booking/${bus._id}`,
+        `https://apnabus-2-2.onrender.com/api/booking/${bus._id}`,
         {
           ticketCount: selectedSeats.length
         },

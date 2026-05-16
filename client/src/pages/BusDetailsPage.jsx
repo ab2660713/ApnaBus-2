@@ -18,7 +18,7 @@ function BusDetailsPage() {
   useEffect(() => {
     const fetchBus = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/bus/${id}`);
+        const res = await axios.get(`https://apnabus-2-2.onrender.com/api/bus/${id}`);
         setBus(res.data);
 
         const total = res.data.totalSeats;
@@ -74,7 +74,7 @@ function BusDetailsPage() {
     // If deselecting, unlock the seat first
     if (seatStatus[index] === "selected") {
       try {
-        await axios.post("http://localhost:5000/api/bus/unlock-seat", {
+        await axios.post("https://apnabus-2-2.onrender.com/api/bus/unlock-seat", {
           busId: bus._id,
           seatNumber,
         });
@@ -92,7 +92,7 @@ function BusDetailsPage() {
 
     // ⛔ CALL BACKEND TO LOCK SEAT
     try {
-      const res = await axios.post("http://localhost:5000/api/bus/lock-seat", {
+      const res = await axios.post("https://apnabus-2-2.onrender.com/api/bus/lock-seat", {
         busId: bus._id,
         seatNumber,
       });

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const fetchAllBuses = async () => {
-  const res = await axios.get("http://localhost:5000/api/bus");
+  const res = await axios.get("https://apnabus-2-2.onrender.com/api/bus");
   console.log(res.data)
   console.log("API BUS RESPONSE →", res.data);  // debugging
 
@@ -9,7 +9,7 @@ const fetchAllBuses = async () => {
 };
 
 const fetchBus = async (id) => {
-  const res = await axios.get(`http://localhost:5000/api/bus/${id}`);
+  const res = await axios.get(`https://apnabus-2-2.onrender.com/api/bus/${id}`);
   return res.data;        // backend returns { bus: {} }
 };
 

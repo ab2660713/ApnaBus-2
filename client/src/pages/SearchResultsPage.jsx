@@ -24,7 +24,7 @@ function SearchResultsPage() {
           setBuses(res.data);
         } else {
           // USER DIRECTLY OPENED /buses → Load all buses
-          const res = await axios.get("http://localhost:5000/api/bus");
+          const res = await axios.get("https://apnabus-2-2.onrender.com/api/bus");
           setBuses(res.data);
         }
       } catch (err) {

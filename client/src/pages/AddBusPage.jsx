@@ -30,7 +30,7 @@ function AddBusPage() {
     };
 
     try {
-      await axios.post("http://localhost:5000/api/admin/bus", finalData, {
+      await axios.post("https://apnabus-2-2.onrender.com/api/admin/bus", finalData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

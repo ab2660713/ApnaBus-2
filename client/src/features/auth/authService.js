@@ -4,7 +4,7 @@ const API_URL = "http://localhost:5000"
 
 const register = async (formData) => {
     const response = await axios.post(
-        `http://localhost:5000/api/auth/register`,
+        `https://apnabus-2-2.onrender.com/api/auth/register`,
         formData
     )
 
@@ -16,7 +16,7 @@ const register = async (formData) => {
 
 const login = async (formData) => {
     const response = await axios.post(
-        `http://localhost:5000/api/auth/login`,
+        `https://apnabus-2-2.onrender.com/api/auth/login`,
         formData
     )
 

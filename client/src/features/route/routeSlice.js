@@ -4,7 +4,7 @@ import axios from "axios";
 export const getRoutes = createAsyncThunk(
   "routes/getAll",
   async () => {
-    const res = await axios.get("/api/routes");
+    const res = await axios.get("https://apnabus-2-2.onrender.com/api/routes");
     return res.data;
   }
 );

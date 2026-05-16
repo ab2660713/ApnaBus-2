@@ -23,7 +23,7 @@ export default function AllUsers() {
     try {
       setLoading(true);
       // backend route you already have: GET /admin/view-users
-      const { data } = await axios.get("http://localhost:5000/api/admin/view-users", authHeader);
+      const { data } = await axios.get("https://apnabus-2-2.onrender.com/api/admin/view-users", authHeader);
       setUsers(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Fetch users failed", err);
@@ -37,7 +37,7 @@ export default function AllUsers() {
     if (!confirm("Delete this user?")) return;
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/admin/user/${uid}`,
+        `https://apnabus-2-2.onrender.com/api/admin/user/${uid}`,
         { isActive: false },
         authHeader
       );
@@ -55,7 +55,7 @@ export default function AllUsers() {
   async function toggleBlock(uid, isActive) {
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/admin/user/${uid}`,
+        `https://apnabus-2-2.onrender.com/api/admin/user/${uid}`,
         { isActive: !isActive },
         authHeader
       );

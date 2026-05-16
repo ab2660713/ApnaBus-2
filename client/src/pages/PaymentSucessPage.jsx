@@ -27,7 +27,7 @@ useEffect(() => {
   
     const lockSeats = async () => {
       try {
-        await axios.put("/api/bus/book-seats", {
+        await axios.put("https://apnabus-2-2.onrender.com/api/bus/book-seats", {
           busId: bus._id,
           seats: selectedSeats,
         });

@@ -8,7 +8,7 @@ const getAllBookings = async (token) => {
     headers: { Authorization: `Bearer ${token}` },
   };
 
-  const res = await axios.get("http://localhost:5000/api/booking/my-bookings", options);
+  const res = await axios.get("https://apnabus-2-2.onrender.com/api/booking/my-bookings", options);
   return res.data;
 };
 
@@ -20,7 +20,7 @@ const getSingleBooking = async (id, token) => {
     headers: { Authorization: `Bearer ${token}` },
   };
 
-  const res = await axios.get(`http://localhost:5000/api/booking/${id}`, options);
+  const res = await axios.get(`https://apnabus-2-2.onrender.com/api/booking/${id}`, options);
   return res.data;
 };
 
@@ -32,7 +32,7 @@ const createBooking = async (bookingData, token) => {
     headers: { Authorization: `Bearer ${token}` },
   };
 
-  const res = await axios.post("http://localhost:5000/api/booking", bookingData, options);
+  const res = await axios.post("https://apnabus-2-2.onrender.com/api/booking", bookingData, options);
   return res.data;
 };
 
@@ -49,7 +49,7 @@ const deleteBooking = async (id, token) => {
     headers: { Authorization: `Bearer ${token}` },
   };
 
-  const res = await axios.delete(`http://localhost:5000/api/booking/${id}`, options);
+  const res = await axios.delete(`https://apnabus-2-2.onrender.com/api/booking/${id}`, options);
   return res.data;
 };
 const getBookedSeats = async (busId, date, token) => {
@@ -58,7 +58,7 @@ const getBookedSeats = async (busId, date, token) => {
   };
 
   const res = await axios.get(
-    `http://localhost:5000/api/booking/booked-seats?busId=${busId}&date=${date}`,
+    `https://apnabus-2-2.onrender.com/api/booking/booked-seats?busId=${busId}&date=${date}`,
     options
   );
 
