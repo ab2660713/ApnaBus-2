@@ -1,4 +1,5 @@
 import express from "express";
+
 import {
   addBus,
   updateBus,
@@ -8,38 +9,39 @@ import {
   getAllRatings,
   getAllBookings,
   getDashboardStats,
-  deleteBus
+  deleteBus,
 } from "../controllers/adminController.js";
 
 import adminProtect from "../middleware/adminMiddleware.js";
 
 import {
   getBuses,
-  getBus
+  getBus,
 } from "../controllers/busController.js";
 import { viewAllBookings } from "../controllers/bookingController.js";
 
 const router = express.Router();
-router.post('/bus', adminProtect, addBus);
 
-router.put('/bus/:bsid', adminProtect, updateBus);
+router.post("/bus", adminProtect, addBus);
 
-router.put('/booking/:id', adminProtect, updateBooking);
+router.put("/bus/:bsid", adminProtect, updateBus);
 
-router.put('/user/:uid', adminProtect, updateUser);
+router.put("/booking/:id", adminProtect, updateBooking);
 
-router.get('/buses', adminProtect, getBuses);
+router.put("/user/:uid", adminProtect, updateUser);
 
-router.get('/bus/:id', adminProtect, getBus);
+router.get("/buses", adminProtect, getBuses);
 
-router.get('/dashboard-stats', adminProtect, getDashboardStats);
+router.get("/bus/:id", adminProtect, getBus);
 
-router.delete('/bus/:id', adminProtect, deleteBus);
+router.get("/dashboard-stats", adminProtect, getDashboardStats);
 
-router.get('/view-users', adminProtect, getAllUsers);
+router.delete("/bus/:id", adminProtect, deleteBus);
 
-router.get('/view-ratings', adminProtect, getAllRatings);
+router.get("/view-users", adminProtect, getAllUsers);
 
-router.get('/view-bookings', adminProtect, viewAllBookings);
+router.get("/view-ratings", adminProtect, getAllRatings);
+
+router.get("/view-bookings", adminProtect, viewAllBookings);
 
 export default router;
